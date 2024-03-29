@@ -167,7 +167,7 @@ Question:{question}
     haiku_template = "Write a haiku about being lost in hyperspace. Only return the haiku."
     languages = ["Greek", "Latin", "Japanese", "Russian"]
     greek_template = f"Respond to the question with a story about being lost in the dark of space in {random.choice(languages)}. Only return the story." 
-    players = ["Josh", "Graeme", "Tara", "Alvin"]
+    players = ["Sigma-37b", "Alonso Amann", "Delver Belton","Alfalfa Centauri"]
     question_template = f"Imagine you are a paranoid AI system.  Ask a question about {random.choice(players)}. Just ask the question."
     templates = [real_template, real_template, real_template, real_template, real_template, real_template, real_template, haiku_template, greek_template, question_template]
     llm_prompt = PromptTemplate.from_template(random.choice(templates))
@@ -190,12 +190,12 @@ st.title('RSV Fidanza')
 with st.sidebar:
     if st.sidebar.button("Restart conversation"):
         st.session_state.messages = []
-        st.session_state.messages.append({"role": "system", "content": "I am the artificial intelligence system for the research ship RSV Fidanza. How may I help you?"})
+        st.session_state.messages.append({"role": "assistant", "content": "I am the artificial intelligence system for the research ship RSV Fidanza. How may I help you?"})
 
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
-    st.session_state.messages.append({"role": "system", "content": "I am the artificial intelligence system for the research ship RSV Fidanza. How may I help you?"})
+    st.session_state.messages.append({"role": "assistant", "content": "I am the artificial intelligence system for the research ship RSV Fidanza. How may I help you?"})
 
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
